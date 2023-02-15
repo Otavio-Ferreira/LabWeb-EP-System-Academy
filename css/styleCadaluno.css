@@ -1,0 +1,14 @@
+body{
+    background-color: #0c192c;
+}
+
+
+.container{
+    background-color: #E3813D;
+    animation: zoomIn;
+    animation-duration: 1s;
+}
+
+label{
+    font-weight: bold;
+}

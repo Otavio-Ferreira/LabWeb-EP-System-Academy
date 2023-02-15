@@ -1,0 +1,141 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+.logozinha{
+    width: 150px;
+    border-radius: 10px;
+}
+
+body{
+    width: 100%;
+    background-color: #0c192c;
+
+    animation: fadeIn;
+    animation-duration: 1s;
+}
+
+header{
+    background-color: black;
+}
+
+/*carrossel*/
+
+.slider{
+    margin: -15px auto 0px auto;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.slides{
+    width: 400%;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide{
+    width: 25%;
+    position: relative;
+    transition: 2s;
+}
+
+.slide img{
+    width: 100%;
+    height: 300px;
+}
+
+
+.manual-btn{
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+
+.manual-btn:hover{
+    background-color: white;
+}
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .first{
+    margin-left: -50%;
+}
+
+#radio4:checked ~ .first{
+    margin-left: -75%;
+}
+
+.navegation-auto div{
+    
+    transition: 1s;
+
+}
+
+
+.naveg{
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    text-align: center;
+    width: 80%;
+    margin: 5px auto;
+}
+
+.naveg a{
+    color: #E88F3F;
+}
+
+.caixanav{
+    background-color: #E88F3F;
+}
+
+#subname{
+    font-size: 20px;
+    color: #E88F3F;
+    font-weight: bold;
+
+    animation: slideInLeft;
+    animation-duration: 2s;
+}
+
+#othek{
+    color: white;
+}
+
+.titlearea{
+    color: #0c192c;
+}
+
+#reconhecimento{
+    padding: 10px;
+    background-color: #E88F3F;
+    font-weight: bold;
+    color: #0c192c;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+#reconhecimento p{
+    animation: slideInLeft;
+    animation-duration: 2s;
+}
+
+#controle{
+    margin: 20px;
+    text-align: center;
+    color: #f5f5f5;
+    font-weight: bold;
+}
