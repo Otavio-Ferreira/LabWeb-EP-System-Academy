@@ -5,7 +5,7 @@
     if(isset($_POST['submit'])){
 
         //inclue a conexão
-        include_once('../php/configDataAdm.php');
+        include_once('../php/configData.php');
 
         //cria variáveis que recebem o valores dos inputs que vinheram com o subimit do post
         $nome = $_POST['nome'];
@@ -31,13 +31,13 @@
 <body> 
     <div id="container">
         <div class="img">
-            <img src="img/logo-p.png" alt="">  
+            <img src="../img/logo-p.png" alt="">  
         </div>
         <div class="form">
             <form action="cadastraradm.php" method="POST">
                 <input type="text" placeholder="Nome" name="nome" id="nome" required>
                
-                <input type="text" placeholder="Email" name="email" id="email" required>
+                <input type="email" placeholder="Email" name="email" id="email" required>
                 
                 <input type="password" placeholder="Senha" name="senha" id="senha" required>
                 

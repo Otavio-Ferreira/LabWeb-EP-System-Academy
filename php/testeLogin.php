@@ -9,7 +9,7 @@
     if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])){
 
         //incluir a conexão ao banco, definir variaveis recebendo o post do email e senha
-        include_once('configDataAdm.php');
+        include_once('configData.php');
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 

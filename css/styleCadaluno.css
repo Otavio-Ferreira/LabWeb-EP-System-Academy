@@ -1,5 +1,6 @@
 body{
     background-color: #0c192c;
+    height: 100%;
 }
 
 
@@ -11,4 +12,8 @@ body{
 
 label{
     font-weight: bold;
+}
+
+footer{
+    bottom: 0%;
 }

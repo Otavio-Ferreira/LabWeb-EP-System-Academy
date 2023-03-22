@@ -1,0 +1,95 @@
+body{
+    background-color: #0c192c;
+}
+
+main{
+    animation: fadeIn;
+    animation-duration: 3s;
+}
+
+.tabletreinos{
+    height: 480px;
+    width: 200px;
+    margin: 0%;
+    background-color: #e88f3f;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+
+    animation: backInDown;
+    animation-duration: 1s;
+}
+
+.headerTreino{
+    animation: backInDown;
+    animation-duration: 1s;
+}
+
+.tabletreinos input{
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+}
+
+.pai{
+    margin-top: 25px;
+}
+
+.infor{
+    width: 70%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+}
+
+img{
+    border-radius: 10px;
+}
+
+.first{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.first input{
+    height: 40px;
+    width: 48%;
+    border-radius: 5px;
+    background-color: #e88f3f;
+    border: none;
+}
+
+.second{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.second input{
+    height: 40px;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #e88f3f;
+    border: none;
+}
+
+.submit{
+    width: 70%;
+    border-radius: 5%;
+}
+
+label{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.bt{
+    background-color: #e88f3f;
+    color: white;
+    font-weight: bold;
+}

@@ -1,0 +1,10 @@
+@media (max-width: 1200px){
+    .treinos{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .tabletreinos{
+        margin: 10px auto;
+    }
+}

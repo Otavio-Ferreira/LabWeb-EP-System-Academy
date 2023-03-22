@@ -1,24 +1,45 @@
 <?php
 
-  if(isset($_POST['submit'])){
+    //se a rota GET(url) não estiver vazia, pegar o id
+    if(!empty($_GET['id'])){
 
-    //inclue a conexão
-    include_once('../php/configData.php');
+        //inclue a conexão
+        include_once('../php/configData.php');
 
-    //cria variáveis que recebem o valores dos inputs que vinheram com o subimit do post
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $idade = $_POST['idade'];
-    $endereco = $_POST['endereco'];
-    $telefone = $_POST['telefone'];
-    $mensalidade = $_POST['mensalidade'];
-    $inscricao = $_POST['inscricao'];
-    $sexo = $_POST['genero'];
+        //variáveiid recebe o valor id da rota get
+        $id = $_GET['id'];
 
-    //variável que recebe o comando para inserir os dados na tabela
-    $result = mysqli_query($conexao, "INSERT INTO alunos (nome, email, idade, endereco, telefone, mensalidade, inscricao, sexo) VALUES ('$nome', '$email', '$idade', '$endereco', '$telefone', '$mensalidade', '$inscricao', '$sexo')");
+        //variável recebe comando SQL
+        $sqlSlect = "SELECT * FROM alunos WHERE id='$id'";
 
-  }
+        //variável recebe query da tabela
+        $result = $conexao->query($sqlSlect);
+
+        //se o número de linhas provenientes da variável result for maior que zero
+        if($result -> num_rows > 0){
+
+          //receber os valores dos campos e colocar em seus devidos lugares no formulário
+          while($user_data = mysqli_fetch_assoc($result)){
+
+              $nome = $user_data['nome'];
+              $email = $user_data['email'];
+              $idade = $user_data['idade'];
+              $endereco = $user_data['endereco'];
+              $telefone = $user_data['telefone'];
+              $mensalidade = $user_data['mensalidade'];
+              $inscricao = $user_data['inscricao'];
+              $sexo = $user_data['sexo'];
+        }
+        }
+        else{
+            header('Location: sistema.php');
+        }
+
+    
+    }
+    else{
+        header('Location: sistema.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -68,53 +89,56 @@
     </nav>
   </header>
   <main class="d-flex justify-content-center w-100">
-        <form action="cadastroaluno.php" method="POST" class="d-flex justify-content-around w-75 p-3" style="margin-top: 60px">
+        <form action="../php/update.php" method="POST" class="d-flex justify-content-around w-75 p-3 " style="margin-top: 60px">
         
               <div class="container p-2 rounded-start">
                 <div class="mb-3">
                   <label for="nome" class="form-label">Nome:</label>
-                  <input type="text" class="form-control" name="nome" id="nome" aria-describedby="emailHelp" required>
+                  <input type="text" class="form-control" name="nome" id="nome" aria-describedby="emailHelp" value="<?php echo $nome; ?>" required>
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email:</label>
-                  <input type="email" class="form-control" id="email" name="email" required>
+                  <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" required>
                 </div>
                 <div class="mb-3">
                   <label for="idade" class="form-label">Idade:</label>
-                  <input type="number" min="1" class="form-control" id="idade" name="idade" aria-describedby="emailHelp" required>
+                  <input type="number" min="1" class="form-control" id="idade" name="idade" aria-describedby="emailHelp" value="<?php echo $idade; ?>" required>
                 </div>
                 <div class="mb-3">
                   <label for="endereco" class="form-label">Endereço:</label>
-                  <input type="text" class="form-control" id="endereco" name="endereco" required>
+                  <input type="text" class="form-control" id="endereco" name="endereco" value="<?php echo $endereco; ?>" required>
                 </div>
               </div>
         
               <div class="container p-2 rounded-end">
                 <div class="mb-3">
                   <label for="telefone" class="form-label">Telefone:</label>
-                  <input type="tel" class="form-control" id="telefone" name="telefone" required>
+                  <input type="tel" class="form-control" id="telefone" name="telefone" value="<?php echo $telefone; ?>" required>
                 </div>
                 <div class="mb-3">
                   <label for="mensalidade" class="form-label">Valor da mensalidade:</label>
-                  <input type="text" class="form-control" id="mensalidade" name="mensalidade" required>
+                  <input type="text" class="form-control" id="mensalidade" name="mensalidade" value="<?php echo $mensalidade; ?>" required>
                 </div>
                 <div class="mb-3">
                   <label for="inscricao" class="form-label">Data de Inscrição:</label>
-                  <input type="date" class="form-control" id="inscricao" name="inscricao" required>
+                  <input type="date" class="form-control" id="inscricao" name="inscricao" value="<?php echo $inscricao; ?>" required>
                 </div>
                 <div class="mb-3 d-flex justify-content-evenly border m-auto p-3 mb-2 bg-white text-dark rounded-2">
                   <label class="form-label" for="genero">Sexo:</label>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="genero" id="feminino" value="Feminino" required>
+                    <input class="form-check-input" type="radio" name="genero" id="feminino" value="Feminino" <?php echo ($sexo == 'Feminino')?'checked': ''; ?> required>
                     <label class="form-check-label" for="feminino">Feminino</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="genero" id="masculino" value="Masculino" required>
+                    <input class="form-check-input" type="radio" name="genero" id="masculino" value="Masculino" value="Masculino" <?php echo ($sexo == 'Masculino')?'checked': ''; ?> required>
                     <label class="form-check-label" for="masculino">Masculino</label>
                   </div>
+
+                  
                 </div>
                 <div class="d-flex justify-content-center">
-                  <input type="submit"  name="submit" id="submit" class="btn bg-white" style="color: #E3813D" value="Cadastrar Aluno">
+                  <input type="hidden" name="id" value=<?php echo $id;?>>
+                  <input type="submit"  name="update" id="update" class="btn bg-white" style="color: #E3813D" value="Salvar">
                 </div>
               </div>
       
@@ -167,7 +191,3 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-
-
