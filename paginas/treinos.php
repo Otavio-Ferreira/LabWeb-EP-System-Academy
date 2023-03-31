@@ -34,7 +34,7 @@
                     <a class="nav-link" href="treinos.php">Treino Personalizado</a>
                   </li>
                   <li class="nav-item naveg">
-                    <a class="nav-link" href="">Sair</a>
+                    <a class="nav-link" href="../php/sair.php">Sair</a>
                   </li>
               </div>
               <div class="offcanvas-footer">
