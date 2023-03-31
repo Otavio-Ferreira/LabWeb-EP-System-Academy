@@ -2,51 +2,73 @@ body{
     background-color: #0c192c;
 }
 
-main{
-    animation: fadeIn;
-    animation-duration: 3s;
-}
-
 .tabletreinos{
-    height: 480px;
-    width: 200px;
-    margin: 0%;
+    height: auto;
+    width: 400px;
     background-color: #e88f3f;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    font-weight: bolder;
     align-content: space-around;
-
-    animation: backInDown;
-    animation-duration: 1s;
+    margin-top: 10px;
+    border: solid 1px black;
 }
 
-.headerTreino{
-    animation: backInDown;
-    animation-duration: 1s;
+.cabeçalho{
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-bottom: solid 1px white;
 }
 
+.caixaInputs{
+    display: flex;
+    flex: wrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.inputsDaCaixa{
+    display: block;
+}
 .tabletreinos input{
+    margin: 1%;
     height: 35px;
     border: none;
-    border-radius: 5px;
+    border-radius: 9px;
+    
+}
+
+.ser input{
+    width: 70px;
+    margin: 2%;
+}
+
+.rep input{
+    width: 70px;
+    margin: 2%;
 }
 
 .pai{
     margin-top: 25px;
+    
+}
+
+.treinos{
+    flex-wrap: wrap;
 }
 
 .infor{
-    width: 70%;
+    width: 99%;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-around;
-}
-
-img{
-    border-radius: 10px;
 }
 
 .first{
@@ -61,35 +83,42 @@ img{
     border-radius: 5px;
     background-color: #e88f3f;
     border: none;
+    margin: 2px;
 }
 
 .second{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-.second input{
+.second div{
+    width: 48%;
+}
+
+.obj{
     height: 40px;
-    border-radius: 5px;
+    border-radius: 6px;
     width: 100%;
     background-color: #e88f3f;
     border: none;
+    margin: 2px;
+}
+#ob2{
+    display: flex;
+    justify-content: space-between;
 }
 
-.submit{
-    width: 70%;
-    border-radius: 5%;
-}
+.ob3{
+    width: 95%;
 
-label{
-    font-size: 20px;
-    color: white;
-    font-weight: bold;
-}
-
-.bt{
+    height: 40px;
+    border-radius: 6px;
+   
     background-color: #e88f3f;
-    color: white;
-    font-weight: bold;
+    border: none;
+    margin: 2px;
 }
+
+
+  
