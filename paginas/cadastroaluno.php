@@ -1,5 +1,12 @@
 <?php
 
+<<<<<<< Updated upstream
+=======
+  session_start();
+  $logado = $_SESSION['email'];
+  $senha = $_SESSION['senha'];
+
+>>>>>>> Stashed changes
   if(isset($_POST['submit'])){
 
     //inclue a conexão
@@ -16,7 +23,11 @@
     $sexo = $_POST['genero'];
 
     //variável que recebe o comando para inserir os dados na tabela
+<<<<<<< Updated upstream
     $result = mysqli_query($conexao, "INSERT INTO alunos (nome, email, idade, endereco, telefone, mensalidade, inscricao, sexo) VALUES ('$nome', '$email', '$idade', '$endereco', '$telefone', '$mensalidade', '$inscricao', '$sexo')");
+=======
+    $result = mysqli_query($conexao, "INSERT INTO $senha (nome, email, idade, endereco, telefone, mensalidade, inscricao, sexo) VALUES ('$nome', '$email', '$idade', '$endereco', '$telefone', '$mensalidade', '$inscricao', '$sexo')");
+>>>>>>> Stashed changes
 
   }
 ?>
@@ -29,8 +40,11 @@
     <title>Cadastro do Aluno</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/styleSistema.css">
+    <link rel="stylesheet" href="../css/styleConta.css">
     <link rel="stylesheet" href="../css/styleCadaluno.css">
+    <link rel="stylesheet" href="../css/styleFooter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 </head>
 <body>
   <header>
@@ -48,7 +62,7 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item naveg">
-                <a class="nav-link" aria-current="page" href="sistema.php">Início</a>
+                <a class="nav-link" aria-current="page" href="../index.php">Início</a>
               </li>
               <li class="nav-item naveg">
                 <a class="nav-link" href="cadastroaluno.php">Cadastrar Aluno</a>
@@ -57,6 +71,14 @@
                 <a class="nav-link" href="treinos.php">Treino Personalizado</a>
               </li>
               <li class="nav-item naveg">
+<<<<<<< Updated upstream
+=======
+                <a type="button" class="nav-link"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  acessar conta
+                </a>
+              </li>
+              <li class="nav-item naveg">
+>>>>>>> Stashed changes
                 <a class="nav-link" href="../php/sair.php">Sair</a>
               </li>
           </div>
@@ -67,10 +89,15 @@
       </div>
     </nav>
   </header>
+<<<<<<< Updated upstream
   <main class="d-flex justify-content-center w-100">
         <form action="cadastroaluno.php" method="POST" class="d-flex justify-content-around w-75 p-3" style="margin-top: 60px">
+=======
+  <main class="m-auto">
+        <form action="cadastroaluno.php" method="POST">
+>>>>>>> Stashed changes
         
-              <div class="container p-2 rounded-start">
+              <div class="container p-2 rounded-top conteinerForm">
                 <div class="mb-3">
                   <label for="nome" class="form-label">Nome:</label>
                   <input type="text" class="form-control" name="nome" id="nome" aria-describedby="emailHelp" required>
@@ -89,7 +116,7 @@
                 </div>
               </div>
         
-              <div class="container p-2 rounded-end">
+              <div class="container p-2 rounded-bottom conteinerForm">
                 <div class="mb-3">
                   <label for="telefone" class="form-label">Telefone:</label>
                   <input type="tel" class="form-control" id="telefone" name="telefone" required>
@@ -120,8 +147,13 @@
       
           </form>
   </main>
+<<<<<<< Updated upstream
   <footer class="d-block">
     <div class="d-block box">
+=======
+  <footer class="d-block position-static">
+    <div class="d-block box border-bottom">
+>>>>>>> Stashed changes
       <p id="footertilte">Othek Programing Group</p>
       <p id="developers">Desenvolvedores do projeto:</p>
     </div>

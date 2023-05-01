@@ -3,11 +3,35 @@ body{
     height: 100%;
 }
 
-
 .container{
-    background-color: #E3813D;
     animation: zoomIn;
     animation-duration: 1s;
+}
+
+main{
+    width: 100%;
+    height: 80vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+
+}
+
+form{
+    margin-top: 60px;
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    margin: auto;
+}
+
+.conteinerForm{
+    width: 400px;
+    background-color: #E3813D;
 }
 
 label{
@@ -16,4 +40,16 @@ label{
 
 footer{
     bottom: 0%;
+<<<<<<< Updated upstream
+=======
+    margin-bottom: -20px;
+    background-color: black;
+}
+
+@media(max-width: 900px){
+    form{
+        width: 400px;
+        display: block;
+    }
+>>>>>>> Stashed changes
 }

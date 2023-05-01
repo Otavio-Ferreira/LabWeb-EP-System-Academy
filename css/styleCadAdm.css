@@ -1,43 +1,43 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
     background-color: #0c192c;
-    height: 100vh;
+    animation: fadeIn;
+    animation-duration: 2s;
+}
+
+main{
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+
 }
 
 #container{
-    background-color: #E88F3F;
-    padding: 20px;
-    border-radius: 15px;
-    color: #fff;
-    width: 400px;
-    height: 450px;
-    animation: zoomIn;
-    animation-duration: 1s;
-
+    width: 80%;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: space-between;
-    
+    animation: zoomIn;
+    animation-duration: 1s;
 }
 
 input{
-    width: 250px;
+    width: 100%;
     padding: 15px;
     border: none;
     outline: none;
-    font-size: 15px;
+    font-size: 18px;
     border-radius: 10px;
+    margin: 10px auto;
+    font-weight: bold;
 }
 
 #submit{
@@ -47,7 +47,8 @@ input{
     width: 250px;
     border-radius: 10px;
     color: black;
-    font-size: 15px;
+    font-size: 25px;
+    font-weight: bold;
     cursor: pointer;
     
 }
@@ -55,25 +56,110 @@ input{
     cursor: pointer;
 }
 
+.form{
+    margin: auto;
+    width: 90%;
+    background-image: linear-gradient(to bottom, #010B40, #4F22F2);
+    border-radius: 15px;
+    color: #fff;
+    padding: 15px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+}
+
 form{
-    height: 300px;
+    height: auto;
+    width: 800px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: space-between;
 }
 
-.form{
-    margin: auto;
-}
-.img{
-    margin: auto;
-    width: 300px;
+.form h2{
+    text-align: center;
 }
 
-img{
-    width: 250px;
-    display: block;
+.caixasForm{
+    width: 390px;
+    margin-bottom: 30px;
+}
+
+div{
+    position: relative;
+}
+
+div i{
+    font-size:30px;
+    cursor: pointer;
+    position: absolute;
+    right: 2%;
+    bottom: 20%;
+}
+
+#edit{
+    font-size:30px;
+    cursor: pointer;
+    position: absolute;
+    right: 2%;
+    bottom: 20%;
+}
+
+.boxInputs{
+    width: 90%;
     margin: auto;
+}
+
+#boxInputsData{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.inputsData{
+    width: 39%;
+    text-align: center;
+    font-weight: bold;
+}
+
+#ate{
+    background-color: white;
+    color: black;
+    padding: 16.5px;
+    font-weight: bold;
+}
+
+#submit{
+    width: 95%;
+    background-image: linear-gradient(to bottom, #0c192c, #010f57);
+    color: white;
+}
+
+#enviarComprovante{
+    background-color: #F2EEFF;
+    border: none;
+    padding: 15px;
+    width: 100%;
     border-radius: 10px;
+    color: white;
+    background-color: rgb(21, 197, 21);
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+#qrcode{
+    border-radius: 15px;
+}
+
+@media(max-width: 1200px){
+    .caixasForm{
+        width: 100%;
+    }
 }

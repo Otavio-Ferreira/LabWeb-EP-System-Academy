@@ -14,30 +14,40 @@
         $senha = $_POST['senha'];
 
         //variável com o comando sql para buscar na tabela
-        $sql = "SELECT * FROM users WHERE email = '$email' and senha = '$senha' ";
+        $sql = "SELECT * FROM users WHERE email = '$email' and senha = '$senha'";
 
         //variável que recebe o comando para usar a conexão ao banco atravez do comando sql e ir 
         //até a tabela
         $result = $conexao->query($sql);
-
             //se o numero de linhas na tabela for menor que 1
             if(mysqli_num_rows($result) < 1){
 
                 //destroi as sessões do email e senha, direciona para a mesma página
                 unset($_SESSION['email']);
                 unset($_SESSION['senha']);
-                header('Location: ../index.php');
+                header('Location: ../paginas/login.php');
             }
             else {
-                //se não, cria sessões que recebem os valores das variáveis definidas e
-                //direciona para a página sistema
-                $_SESSION['email'] = $email;
-                $_SESSION['senha'] = $senha;
-                header('Location: ../paginas/sistema.php');
+          
+                while($user_data = mysqli_fetch_assoc($result)){
+                    $situacao = $user_data['situação'];
+                }
+
+                if($situacao == "Ativo"){
+
+                    $_SESSION['email'] = $email;
+                    $_SESSION['senha'] = $senha;
+                    header('Location: ../index.php');
+
+                }
+                else{
+                    header('Location: ../paginas/login.php');
+                }
+                
             }
     }
     else{
         //se não existir um post, mantem na página
-        header('location: ../index.php');
+        header('location: ../paginas/login.php');
     }
 ?>

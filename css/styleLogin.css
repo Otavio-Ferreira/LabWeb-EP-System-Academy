@@ -13,11 +13,12 @@ body{
     background-color: #0c192c;
 }
 
-#container{
-    width: 800px;
+#containerLogin{
+    width: 100%;
     padding: 15px;
 
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-content: center;
 
@@ -49,7 +50,7 @@ body{
 }
 
 #formlongin{
-    width: 340px;
+    width:400px;
     height: 300px;
     padding: 5px;
     background-color: #E3813D;
@@ -75,14 +76,14 @@ input{
     display: block;
     height: 40px;
     padding-left: 5px;
-    width: 250px;
+    width: 300px;
     border-radius: 10px;
     border: none;
 
 }
 
 #create{
-    width: 340px;
+    width: 400px;
     height: 70px;
     padding: 5px;
     background-color: #E3813D;
@@ -98,11 +99,15 @@ p{
 
 a{
     text-decoration: none;
-    color: #2c2e35;
+    background-color: #0c192c;
+    color: #E3813D;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 a:hover{
-    text-decoration: underline;
+    box-shadow: #0c192c 1px 1px 20px;
+    background-color: #142b4e;
 }
 
 #submit{
@@ -123,4 +128,17 @@ a:hover{
 img{
     width: 400px;
     border-radius: 10px;
+}
+
+div{
+    position: relative;
+}
+
+div i{
+    font-size:30px;
+    cursor: pointer;
+    position: absolute;
+    right: 25%;
+    bottom:41%;
+    color: #ccc;
 }

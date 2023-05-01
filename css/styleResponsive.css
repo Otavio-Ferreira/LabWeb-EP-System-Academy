@@ -7,4 +7,15 @@
     .tabletreinos{
         margin: 10px auto;
     }
+<<<<<<< Updated upstream
 }
+=======
+
+    .tabela{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+>>>>>>> Stashed changes

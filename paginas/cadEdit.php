@@ -1,4 +1,9 @@
 <?php
+<<<<<<< Updated upstream
+=======
+  session_start();
+  $senha = $_SESSION['senha'];
+>>>>>>> Stashed changes
 
     //se a rota GET(url) não estiver vazia, pegar o id
     if(!empty($_GET['id'])){
@@ -10,7 +15,11 @@
         $id = $_GET['id'];
 
         //variável recebe comando SQL
+<<<<<<< Updated upstream
         $sqlSlect = "SELECT * FROM alunos WHERE id='$id'";
+=======
+        $sqlSlect = "SELECT * FROM $senha WHERE id='$id'";
+>>>>>>> Stashed changes
 
         //variável recebe query da tabela
         $result = $conexao->query($sqlSlect);
@@ -32,13 +41,21 @@
         }
         }
         else{
+<<<<<<< Updated upstream
             header('Location: sistema.php');
+=======
+            header('Location: ../index.php');
+>>>>>>> Stashed changes
         }
 
     
     }
     else{
+<<<<<<< Updated upstream
         header('Location: sistema.php');
+=======
+        header('Location: ../index.php');
+>>>>>>> Stashed changes
     }
 ?>
 <!DOCTYPE html>
@@ -50,7 +67,13 @@
     <title>Cadastro do Aluno</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/styleSistema.css">
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="../css/styleCadaluno.css">
+=======
+    <link rel="stylesheet" href="../css/styleConta.css">
+    <link rel="stylesheet" href="../css/styleCadaluno.css">
+    <link rel="stylesheet" href="../css/styleFooter.css">
+>>>>>>> Stashed changes
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
@@ -69,7 +92,11 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item naveg">
+<<<<<<< Updated upstream
                 <a class="nav-link" aria-current="page" href="sistema.php">Início</a>
+=======
+                <a class="nav-link" aria-current="page" href="../index.php">Início</a>
+>>>>>>> Stashed changes
               </li>
               <li class="nav-item naveg">
                 <a class="nav-link" href="cadastroaluno.php">Cadastrar Aluno</a>
@@ -78,6 +105,12 @@
                 <a class="nav-link" href="treinos.php">Treino Personalizado</a>
               </li>
               <li class="nav-item naveg">
+<<<<<<< Updated upstream
+=======
+              <a type="button" class="nav-link"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">acessar conta</a>
+              </li>
+              <li class="nav-item naveg">
+>>>>>>> Stashed changes
                 <a class="nav-link" href="../php/sair.php">Sair</a>
               </li>
           </div>
@@ -88,10 +121,17 @@
       </div>
     </nav>
   </header>
+<<<<<<< Updated upstream
   <main class="d-flex justify-content-center w-100">
         <form action="../php/update.php" method="POST" class="d-flex justify-content-around w-75 p-3 " style="margin-top: 60px">
         
               <div class="container p-2 rounded-start">
+=======
+  <main class="m-auto w-100">
+        <form action="../php/update.php" method="POST" class="d-flex justify-content-center flex-wrap p-3 m-auto ">
+        
+              <div class="container p-2 rounded-start conteinerForm">
+>>>>>>> Stashed changes
                 <div class="mb-3">
                   <label for="nome" class="form-label">Nome:</label>
                   <input type="text" class="form-control" name="nome" id="nome" aria-describedby="emailHelp" value="<?php echo $nome; ?>" required>
@@ -110,7 +150,11 @@
                 </div>
               </div>
         
+<<<<<<< Updated upstream
               <div class="container p-2 rounded-end">
+=======
+              <div class="container p-2 rounded-end conteinerForm">
+>>>>>>> Stashed changes
                 <div class="mb-3">
                   <label for="telefone" class="form-label">Telefone:</label>
                   <input type="tel" class="form-control" id="telefone" name="telefone" value="<?php echo $telefone; ?>" required>
@@ -144,8 +188,13 @@
       
           </form>
   </main>
+<<<<<<< Updated upstream
   <footer class="d-block">
     <div class="d-block box">
+=======
+  <footer class="d-block" style="position: static;">
+    <div class="d-block box border-bottom">
+>>>>>>> Stashed changes
       <p id="footertilte">Othek Programing Group</p>
       <p id="developers">Desenvolvedores do projeto:</p>
     </div>

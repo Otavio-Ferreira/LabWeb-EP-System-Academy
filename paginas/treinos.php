@@ -1,3 +1,11 @@
+<<<<<<< Updated upstream
+=======
+<?php
+  session_start();
+  $logado = $_SESSION['email'];
+  $senha = $_SESSION['senha'];
+?>
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,6 +16,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/styleTreino.css">
     <link rel="stylesheet" href="../css/styleSistema.css">
+<<<<<<< Updated upstream
+=======
+    <link rel="stylesheet" href="../css/styleConta.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+>>>>>>> Stashed changes
 </head>
 <body>
     <header>
@@ -25,7 +38,11 @@
               <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                   <li class="nav-item naveg">
+<<<<<<< Updated upstream
                     <a class="nav-link" aria-current="page" href="sistema.php">Início</a>
+=======
+                    <a class="nav-link" aria-current="page" href="../index.php">Início</a>
+>>>>>>> Stashed changes
                   </li>
                   <li class="nav-item naveg">
                     <a class="nav-link" href="cadastroaluno.php">Cadastrar Aluno</a>
@@ -34,6 +51,14 @@
                     <a class="nav-link" href="treinos.php">Treino Personalizado</a>
                   </li>
                   <li class="nav-item naveg">
+<<<<<<< Updated upstream
+=======
+                  <a type="button" class="nav-link"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  acessar conta
+                </a>
+                  </li>
+                  <li class="nav-item naveg">
+>>>>>>> Stashed changes
                     <a class="nav-link" href="../php/sair.php">Sair</a>
                   </li>
               </div>
@@ -43,8 +68,12 @@
             </div>
           </div>
         </nav>
+<<<<<<< Updated upstream
       </header>
 
+=======
+  </header>
+>>>>>>> Stashed changes
     <div class="container d-block justify-content-center w-100 p-3">
       <div class="container d-flex flex-wrap justify-content-center pai">
         <div class="infor">
@@ -322,6 +351,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<<<<<<< Updated upstream
     <script>
       
         function add(number){
@@ -404,3 +434,8 @@
     </script>
     </body>
 </html>
+=======
+    <script src="../javascript/treinos.js"></script>
+    </body>
+</html>
+>>>>>>> Stashed changes
