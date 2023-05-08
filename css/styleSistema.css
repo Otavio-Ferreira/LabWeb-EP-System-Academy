@@ -140,54 +140,6 @@ header{
     font-weight: bold;
 }
 
-<<<<<<< Updated upstream
-/*foter*/
-
-footer{
-    background-color: #E88F3F;
-    width: 100%;
-    position: absolute;
-}
-#footertilte{
-    text-align: center;
-    color: #424242;
-    font-size: 25px;
-    margin: 0px;
-}
-
-#developers{
-    text-align: center;
-    color: #f5f5f5;
-    font-size: 16px;
-    margin: 0px;
-}
-
-#contact{
-    margin: auto;
-    cursor: pointer;
-}
-
-.phrase{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.lab{
-    width: 40px;
-}
-
-.textfinal{
-    text-align: center;
-    color: white;
-}
-
-.box{
-    margin-top: 10px;
-}
-
-=======
->>>>>>> Stashed changes
 /*barra*/
 
 .box-search{

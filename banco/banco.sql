@@ -3,24 +3,6 @@ use administradores;
 
 create table users(
     id int auto_increment primary key not null,
-<<<<<<< Updated upstream
-    nome varchar(50) not null,
-    email varchar(50) not null,
-    senha varchar(50) not null
-);
-
-create table alunos(
-    id int auto_increment primary key not null,
-    nome varchar(50) not null,
-    email varchar(50) not null,
-    idade int not null,
-    endereco varchar(100) not null,
-    telefone varchar(50) not null,
-    mensalidade varchar(15) not null,
-    inscricao date not null,
-    sexo varchar(20) not null
-);
-=======
     nome varchar(50),
     email varchar(100),
     senha varchar(50),
@@ -28,7 +10,8 @@ create table alunos(
     dataInicio varchar(20),
     dataFim varchar(20),
     codeConfirm varchar(30),
-    situação varchar(20)
+    situação varchar(20),
+    fotoPerfil varchar(100)
 );
 
 create table adm(
@@ -38,4 +21,3 @@ create table adm(
 );
 
 insert into adm (email, senha) values ('adimin@gmail.com', 'adimin123');
->>>>>>> Stashed changes

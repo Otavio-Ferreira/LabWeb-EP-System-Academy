@@ -71,7 +71,7 @@
                 <a class="nav-link" href="paginas/treinos.php">Treino Personalizado</a>
               </li>
               <li class="nav-item naveg">
-                <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Acessar Conta</a>
+                <a class="nav-link" href="paginas/conta.php">Acessar Conta</a>
               </li>
               <li class="nav-item naveg">
                 <a class="nav-link" href="php/sair.php">Sair</a>

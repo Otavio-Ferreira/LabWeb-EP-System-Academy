@@ -1,6 +1,5 @@
 body{
     background-color: #0c192c;
-    height: 100%;
 }
 
 .container{
@@ -40,8 +39,6 @@ label{
 
 footer{
     bottom: 0%;
-<<<<<<< Updated upstream
-=======
     margin-bottom: -20px;
     background-color: black;
 }
@@ -51,5 +48,4 @@ footer{
         width: 400px;
         display: block;
     }
->>>>>>> Stashed changes
 }

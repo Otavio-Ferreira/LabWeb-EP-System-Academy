@@ -56,23 +56,6 @@
     <link rel="stylesheet" href="../css/styleCadAdm.css">
     <link rel="stylesheet" href="../css/styleFooter.css">
 </head>
-<<<<<<< Updated upstream
-<body> 
-    <div id="container">
-        <div class="img">
-            <img src="../img/logo-p.png" alt="">  
-        </div>
-        <div class="form">
-            <form action="cadastraradm.php" method="POST">
-                <input type="text" placeholder="Nome" name="nome" id="nome" required>
-               
-                <input type="email" placeholder="Email" name="email" id="email" required>
-                
-                <input type="password" placeholder="Senha" name="senha" id="senha" required>
-                
-                <input type="submit" id="submit"name="submit" placeholder="Cadastrar">
-            </form>
-=======
 <body onload="opcoesPagamentos()">
     <header>
         <nav class="navbar navbar-expand-lg bg-black">
@@ -132,7 +115,6 @@
                     </div>
                 </form>
             </div>
->>>>>>> Stashed changes
         </div>
     </main>
     <footer class="d-block position-static bg-black" style="margin-bottom: -20px">
