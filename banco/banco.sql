@@ -11,7 +11,6 @@ create table users(
     dataFim varchar(20),
     codeConfirm varchar(30),
     situação varchar(20),
-    fotoPerfil varchar(100)
 );
 
 create table adm(

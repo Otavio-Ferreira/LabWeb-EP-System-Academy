@@ -18,6 +18,9 @@
             $nome = $user_data['nome'];
             $email = $user_data['email'];
             $senha = $user_data['senha'];
+            $dataFim = $user_data['dataFim'];
+            $dataInicio = $user_data['dataInicio'];
+            $plano = $user_data['plano'];
         }
         }
         else{
@@ -55,21 +58,23 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item naveg">
-                <a class="nav-link" aria-current="page" href="sistema.php">Início</a>
+                <a class="nav-link" aria-current="page" href="../index.php">Início</a>
               </li>
               <li class="nav-item naveg">
                 <a class="nav-link" href="cadastroaluno.php">Cadastrar Aluno</a>
               </li>
               <li class="nav-item naveg">
-                <a class="nav-link" href="treinos.php">Treino Personalizado</a>
-              </li>
-              <li class="nav-item naveg">
-                <a class="nav-link" href="../php/sair.php">Sair</a>
+                <a class="nav-link" href="treinosView.php">Treino Personalizado</a>
               </li>
               <li class="nav-item naveg">
                 <a class="nav-link" href="conta.php">Acessar Conta</a>
               </li>
-              
+              <li class="nav-item naveg">
+                <a class="nav-link" href="relatorio.php">Acessar Relatório</a>
+              </li>
+              <li class="nav-item naveg">
+                <a class="nav-link" href="../php/sair.php">Sair</a>
+              </li>
           </div>
           <div class="offcanvas-footer">
               <img src="../img/logo-p.png" class="img-fluid" alt="">
@@ -82,10 +87,6 @@
     <section>
       <form action="../php/userUpdate.php" method="POST">
         <div class="containerDados">
-          <div class="editImg">
-            <img src="../img/logooficial.png" class="perfil">
-            <!--<input type="file" name="image" id="image" accept="image/png, image/jpeg">-->
-          </div>
           <div class="editInfor">
               <div>
                 <div class="form-floating">
@@ -105,7 +106,25 @@
                 <input type="submit" id="update" name="update" value="Atualizar">
               </div>
           </div>
-             </div>
+          <div class="editInfor">
+              <div class="w-75">
+                <div class="form-floating mt-3">
+                  <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $id; ?>">
+                  <input type="text" class="form-control" name="datainicio" id="datainicio" value="<?php echo $dataInicio; ?>">
+                  <label for="datainicio">Data do inicio da assinatura</label>
+                </div> <br>
+        
+                <div class="form-floating mt-3">
+                  <input type="text" class="form-control" name="datafim" id="datafim" value="<?php echo $dataFim; ?>">
+                  <label for="datafim">Data do fim da assinatura</label>
+                </div><br>
+                <div class="form-floating mt-3">
+                  <input type="text" class="form-control" name="plano" id="plano" value="<?php echo $plano; ?>">
+                  <label for="plano">Senha</label>
+                </div> <br>
+              </div>
+          </div>
+        </div>
       </form>
     </section>
   </main>

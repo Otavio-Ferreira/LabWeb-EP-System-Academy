@@ -1,8 +1,11 @@
 <?php
 
   session_start();
-  $logado = $_SESSION['email'];
+  $email = $_SESSION['email'];
   $senha = $_SESSION['senha'];
+
+  $valor = trim($email);
+  $tabelaUser = str_replace(array('.', '@'), "", $valor);
 
   if(isset($_POST['submit'])){
 
@@ -12,15 +15,17 @@
     //cria variáveis que recebem o valores dos inputs que vinheram com o subimit do post
     $nome = $_POST['nome'];
     $email = $_POST['email'];
+    $senhaAluno = $_POST['senhaAluno'];
     $idade = $_POST['idade'];
     $endereco = $_POST['endereco'];
     $telefone = $_POST['telefone'];
     $mensalidade = $_POST['mensalidade'];
     $inscricao = $_POST['inscricao'];
     $sexo = $_POST['genero'];
+    $situacao = $_POST['situacao'];
 
     //variável que recebe o comando para inserir os dados na tabela
-    $result = mysqli_query($conexao, "INSERT INTO $senha (nome, email, idade, endereco, telefone, mensalidade, inscricao, sexo) VALUES ('$nome', '$email', '$idade', '$endereco', '$telefone', '$mensalidade', '$inscricao', '$sexo')");
+    $result = mysqli_query($conexao, "INSERT INTO $tabelaUser (nome, email, senhaAluno, idade, endereco, telefone, mensalidade, inscricao, sexo, situacao) VALUES ('$nome', '$email', '$senhaAluno', '$idade', '$endereco', '$telefone', '$mensalidade', '$inscricao', '$sexo', '$situacao')");
 
   }
 ?>
@@ -61,10 +66,13 @@
                 <a class="nav-link" href="cadastroaluno.php">Cadastrar Aluno</a>
               </li>
               <li class="nav-item naveg">
-                <a class="nav-link" href="treinos.php">Treino Personalizado</a>
+                <a class="nav-link" href="treinosView.php">Treino Personalizado</a>
               </li>
               <li class="nav-item naveg">
                 <a class="nav-link" href="conta.php">Acessar Conta</a>
+              </li>
+              <li class="nav-item naveg">
+                <a class="nav-link" href="relatorio.php">Acessar Relatório</a>
               </li>
               <li class="nav-item naveg">
                 <a class="nav-link" href="../php/sair.php">Sair</a>
@@ -79,7 +87,6 @@
   </header>
   <main class="m-auto">
         <form action="cadastroaluno.php" method="POST">
-        
               <div class="container p-2 rounded-top conteinerForm">
                 <div class="mb-3">
                   <label for="nome" class="form-label">Nome:</label>
@@ -96,6 +103,17 @@
                 <div class="mb-3">
                   <label for="endereco" class="form-label">Endereço:</label>
                   <input type="text" class="form-control" id="endereco" name="endereco" required>
+                </div>
+                <div class="mb-3 d-flex justify-content-evenly border m-auto p-3 mb-2 bg-white text-dark rounded-2">
+                  <label for="situacao" class="form-label">Situação:</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="situacao" id="pago" value="Pago" required>
+                    <label class="form-check-label" for="pago">Pago</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="situacao" id="pendente" value="Pendente" required>
+                    <label class="form-check-label" for="pendente">Pendente</label>
+                  </div>
                 </div>
               </div>
         
@@ -122,6 +140,17 @@
                     <input class="form-check-input" type="radio" name="genero" id="masculino" value="Masculino" required>
                     <label class="form-check-label" for="masculino">Masculino</label>
                   </div>
+                </div><label class="form-check-label" for="senhaAluno">Senha do aluno:</label>
+                <div class="mb-3 input-group" >
+                  
+                  <input type="password" class="form-control" id="senha" name="senhaAluno" required aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <span class="input-group-text" id="eye">
+                  <svg xmlns="http://www.w3.org/2000/svg"  width="23" height="23" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                  </svg>
+                  </span>
+                  
                 </div>
                 <div class="d-flex justify-content-center">
                   <input type="submit"  name="submit" id="submit" class="btn bg-white" style="color: #E3813D" value="Cadastrar Aluno">
@@ -175,6 +204,7 @@
     </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="../javascript/cadastraradm.js"></script>
 </body>
 </html>
 

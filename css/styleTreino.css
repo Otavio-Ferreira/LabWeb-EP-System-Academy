@@ -1,5 +1,4 @@
 body{
-    background-color: #0c192c;
     animation: fadeIn;
     animation-duration: 1s;
 }
@@ -14,7 +13,7 @@ body{
     font-weight: bolder;
     align-content: space-around;
     margin-top: 10px;
-    border: solid 1px black;
+    box-shadow: 0px 0px 5px black;
 }
 
 .cabeçalho{
@@ -83,15 +82,20 @@ body{
     height: 40px;
     width: 48%;
     border-radius: 5px;
-    background-color: #e88f3f;
     border: none;
     margin: 2px;
+    
+    box-shadow: 0px 0px 5px black;
 }
 
 .second{
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.second input, select{
+    box-shadow: 0px 0px 5px black;
 }
 
 .second div{
@@ -102,7 +106,6 @@ body{
     height: 40px;
     border-radius: 6px;
     width: 100%;
-    background-color: #e88f3f;
     border: none;
     margin: 2px;
 }
@@ -117,7 +120,6 @@ body{
     height: 40px;
     border-radius: 6px;
    
-    background-color: #e88f3f;
     border: none;
     margin: 2px;
 }

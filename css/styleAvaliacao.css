@@ -1,0 +1,51 @@
+.container{
+  animation: zoomIn;
+  animation-duration: 1s;
+}
+
+main{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  margin-top: 50px;
+  
+
+}
+
+form{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  margin: auto;
+}
+
+.conteinerForm{
+  margin-top: 10px;
+  width: 400px;
+  background-color: #E3813D;
+  box-shadow: 0px 0px 5px black;
+}
+
+label{
+  font-weight: bold;
+}
+
+.inputCaixa1{
+  height: 60px;
+}
+
+footer{
+  bottom: 0%;
+  margin-bottom: -20px;
+  background-color: black;
+}
+
+@media(max-width: 900px){
+  form{
+      width: 400px;
+      display: block;
+  }
+}

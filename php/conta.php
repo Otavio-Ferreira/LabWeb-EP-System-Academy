@@ -33,12 +33,12 @@
         }
         }
         else{
-            header('Location: sistema.php');
+            header('Location: ../index.php');
         }
 
     
     }
     else{
-        header('Location: sistema.php');
+        header('Location: ../index.php');
     }
 ?>

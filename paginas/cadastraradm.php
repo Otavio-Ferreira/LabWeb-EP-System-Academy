@@ -21,9 +21,8 @@
         $resultCod = $conexao->query($sql);
 
         if(mysqli_num_rows($resultCod) < 1){
-
-            header('Location: home.php');
-
+            echo "<script> alert('Código de confirmação inválido!'); window.location = `cadastraradm.php?search=${plano}` </script>";
+            
         }
         else {
 
@@ -33,7 +32,12 @@
 
                 $result = $conexao->query($sqlInsertNewUser);
 
-                $sqlCreate = "CREATE TABLE $senha (id int auto_increment primary key not null, nome varchar(50) not null, email varchar(50) not null, idade int not null, endereco varchar(100) not null, telefone varchar(50) not null, mensalidade varchar(15) not null, inscricao date not null, sexo varchar(20) not null);";
+                //tratamento do email
+                $valor = trim($email);
+                $tabelaUser = str_replace(array('.', '@'), "", $valor);
+                //echo $tabelaUser;
+        
+                $sqlCreate = "CREATE TABLE $tabelaUser (id int auto_increment primary key not null,  nome varchar(50),  email varchar(50),  senhaAluno varchar(30), idade int,  endereco varchar(100),  telefone varchar(50),  mensalidade double,  inscricao date,  sexo varchar(20),  situacao varchar(20), peso float, altura float, cintura float, quadril float, coxa float, gordura float, observacoes varchar(200), dataAvaliacao date, pesoAtual float, alturaAtual float, cinturaAtual float, quadrilAtual float, coxaAtual float, gorduraAtual float, observacoesAtual varchar(200), personal varchar(50), objetivo varchar(30), nivel varchar(30), grupoSegunda varchar(30), treinoSegunda varchar(600),  serieSegunda varchar(300),  repeticaoSegunda varchar(300), grupoTerca varchar(30),  treinoTerca varchar(600),  serieTerca varchar(300),  repeticaoTerca varchar(300), grupoQuarta varchar(30),  treinoQuarta varchar(600),  serieQuarta varchar(300),  repeticaoQuarta varchar(300), grupoQuinta varchar(30),  treinoQuinta varchar(600),  serieQuinta varchar(300),  repeticaoQuinta varchar(300), grupoSexta varchar(30),  treinoSexta varchar(600),  serieSexta varchar(300),  repeticaoSexta varchar(300), grupoSabado varchar(30),  treinoSabado varchar(600),  serieSabado varchar(300),  repeticaoSabado varchar(300) );";
 
                 $resultCreate = $conexao->query($sqlCreate);
     
@@ -61,7 +65,7 @@
         <nav class="navbar navbar-expand-lg bg-black">
         <div class="container-fluid d-flex justify-content-between">
             <div>
-            <span class="link-light">OTHEK <span class="text-warning">SYSTEM ACADEMY</span></span>
+            <span style="color: white; font-weight: bold; font-size: 25px;">OTHEK <span  style="color: orange; font-weight: bold;">SYSTEM ACADEMY</span></span>
             </div>
             <div>
             <a href="login.php" type="button" class="btn btn-outline-warning">Entrar</a> 
@@ -101,9 +105,9 @@
 
                     <div class="caixasForm">
                         <div class="boxInputs" id="boxInputsData">
-                            <input type="text" name="dataPagamento" id="dataPagamento" value="" class="inputsData" required style="border-radius: 10px 0px 0px 10px;">
+                            <input type="text" name="dataPagamento" id="dataPagamento" value="" class="inputsData" required style="border-radius: 10px 0px 0px 10px;" readonly>
                             <span id="ate">Até</span>
-                            <input type="text" name="dataFim" id="dataFim" value="" class="inputsData" required style="border-radius: 0px 10px 10px 0px;">
+                            <input type="text" name="dataFim" id="dataFim" value="" class="inputsData" required style="border-radius: 0px 10px 10px 0px;" readonly>
                         </div>
                         <div class="boxInputs">
                             <img src="" id="qrcode" class="w-100" alt="">

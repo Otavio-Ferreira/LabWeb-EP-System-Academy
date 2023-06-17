@@ -12,8 +12,11 @@
     }
 
     //Para mostrar na tela
-    $logado = $_SESSION['email'];
+    $email = $_SESSION['email'];
     $senha = $_SESSION['senha'];
+
+    $valor = trim($email);
+    $tabelaUser = str_replace(array('.', '@'), "", $valor);
 
     //Pegar o valor da url caso ela não esteje vazia
     if(!empty($_GET['search']))
@@ -22,16 +25,18 @@
         $data = $_GET['search'];
 
         //Comando em sql para requisição
-        $sql = "SELECT * FROM $senha WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id asc";
+        $sql = "SELECT * FROM $tabelaUser WHERE id LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY id asc";
     }
     else
     {
         //Comando em sql para requisição
-        $sql = "SELECT * FROM $senha ORDER BY id asc";
+        $sql = "SELECT * FROM $tabelaUser ORDER BY id asc";
     }
 
     //Recebendo a requisição a tabela
     $result = $conexao->query($sql);
+
+    //Tratamento das datas e verificação de pagamento
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -42,11 +47,10 @@
     <title>Sistema</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styleSistema.css">
-    <link rel="stylesheet" href="css/styleConta.css">
     <link rel="stylesheet" href="css/styleFooter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-<body>
+<body class="bg-ligth">
   <header>
     <nav class="navbar navbar-dark fixed-top position-static">
       <div class="container-fluid">
@@ -68,10 +72,13 @@
                 <a class="nav-link" href="paginas/cadastroaluno.php">Cadastrar Aluno</a>
               </li>
               <li class="nav-item naveg">
-                <a class="nav-link" href="paginas/treinos.php">Treino Personalizado</a>
+                <a class="nav-link" href="paginas/treinosView.php">Treino Personalizado</a>
               </li>
               <li class="nav-item naveg">
                 <a class="nav-link" href="paginas/conta.php">Acessar Conta</a>
+              </li>
+              <li class="nav-item naveg">
+                <a class="nav-link" href="paginas/relatorio.php">Acessar Relatório</a>
               </li>
               <li class="nav-item naveg">
                 <a class="nav-link" href="php/sair.php">Sair</a>
@@ -86,7 +93,7 @@
   </header>
   <main>
     <section id="reconhecimento">
-      <?php echo "<p class='text-white'>Seja Bem Vindo <strong>$logado<strong></p>" ?>
+      <?php echo "<p class='text-white'>Seja Bem Vindo <strong>$email<strong></p>" ?>
     </section>
     <section class="w-auto">
       <div class="slider">
@@ -156,16 +163,30 @@
                         echo "<td>".$users_data['inscricao']."</td>";
                         echo "<td>".$users_data['sexo']."</td>";
                         echo "<td>
-                                <a class='btn btn-light btn-sm'  href='paginas/cadEdit.php?id=$users_data[id]' title='Editar'>
-                                    <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
+                                <a class='btn btn-light btn-sm'  href='paginas/cadEdit.php?id=$users_data[id]' title='Editar Aluno'>
+                                    <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
                                     <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
                                     <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
                                     </svg>
-                                </a> <br>
-                                <a class='btn btn-light btn-sm'href='php/delete.php?id=$users_data[id]' title='Deletar'>
-                                    <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash3-fill' viewBox='0 0 16 16'>
+                                </a>
+                                <a class='btn btn-light btn-sm'href='php/delete.php?id=$users_data[id]' title='Deletar Aluno'>
+                                    <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-trash3-fill' viewBox='0 0 16 16'>
                                     <path d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z'/>
                                     </svg>
+                                </a>
+                                <a class='btn btn-light btn-sm'href='paginas/avaliacaoFisica.php?id=$users_data[id]' title='Avaliação Física'>
+                                  <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-clipboard2-heart' viewBox='0 0 16 16'>
+                                    <path d='M10.058.501a.501.501 0 0 0-.5-.501h-2.98c-.276 0-.5.225-.5.501A.499.499 0 0 1 5.582 1a.497.497 0 0 0-.497.497V2a.5.5 0 0 0 .5.5h4.968a.5.5 0 0 0 .5-.5v-.503A.497.497 0 0 0 10.555 1a.499.499 0 0 1-.497-.499Z'/>
+                                    <path d='M3.605 2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-12a.5.5 0 0 0-.5-.5h-.5a.5.5 0 0 1 0-1h.5a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5h-9a1.5 1.5 0 0 1-1.5-1.5v-12a1.5 1.5 0 0 1 1.5-1.5h.5a.5.5 0 0 1 0 1h-.5Z'/>
+                                    <path d='M8.068 6.482c1.656-1.673 5.795 1.254 0 5.018-5.795-3.764-1.656-6.69 0-5.018Z'/>
+                                  </svg>
+                                </a>
+                                <a class='btn btn-light btn-sm'href='paginas/treinos.php?id=$users_data[id]' title='Elaborar Treino'>
+                                  <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-journal-text' viewBox='0 0 16 16'>
+                                    <path d='M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z'/>
+                                    <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z'/>
+                                    <path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z'/>
+                                  </svg>
                                 </a>
                              </td>";
                         echo "</tr>";

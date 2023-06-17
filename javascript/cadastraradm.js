@@ -49,7 +49,3 @@ const senha = document.getElementById('senha');
                 datafim.value = `${ano+1}/${mes}/${dia}`;
             }
         }
-
-        function confirmar(){
-            alert("Caso o código de confirmação estiver correto você será direcionado para o login, caso esteja errado, faça novamente o cadastro coloque corretamente o código de confirmação!");
-        }

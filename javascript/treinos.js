@@ -1,8 +1,39 @@
-function add(number) {
+var search = document.getElementById('pesquisar')
+
+//Adicionando um evento para o elemento aramazenado em 'search', para quando a tecla 'Enter' for pressionada executar a função searchdata()
+search.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    searchData()
+  }
+})
+
+//Função que passa para a url o que foi digitado no campo de pesquisa
+function searchData() {
+  window.location = `treinosView.php?search=${search.value}`
+}
+
+function searchData1() {
+  window.location = `treinosView.php`
+}
+
+function mostrarTreino(){
+  const urlParams = new URLSearchParams(window.location.search);
+  const url = urlParams.get("search") // livros
+
+  if(url == 0 || url == undefined){
+    var caixa = document.getElementById('treinoBox').style.display = 'none'
+  }
+  else{
+    var caixa = document.getElementById('treinoBox').style.display = 'flex'
+  }
+
+}
+/*function add(number) {
   var num = number
-  var inputT = document.createElement('input')
+  var inputT = document.createElement("input")
   var inputS = document.createElement('input')
   var inputR = document.createElement('input')
+
   switch (num) {
     case 1:
       let caixa1_1 = document.getElementById('tre1')
@@ -73,4 +104,4 @@ function add(number) {
 
     default:
   }
-}
+}*/
